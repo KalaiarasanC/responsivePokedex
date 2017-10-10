@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PokBox</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-default shadow">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button id="openMenu" type="button" class=" navbar-toggle">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="" class="navbar-brand">NG-Pokedex</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="menubar" class="dispcls">
+        <div class="remove" onclick="sideMenu()">&times;</div>
+        <ul>
+            <li>
+                <a href="#">Pokemon</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="container-fluid" id="showlist">
+        <div class="row">
+            <input type="search" onkeyup='filterByName()' name="serch_poke" id="search_poke" placeholder="Search">
+        </div>
+<div id="modals">
+
+    
+</div>
+        <!-- pokeCardModel -->
+        <div class="modal fade" role="dialog" tabindex="-1" id="pok">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="pokeName">Bulbasaur</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="thumbnail">
+                            <img id="pokeImg" src="https://img.pokemondb.net/artwork/bulbasaur.jpg" alt="Bulbasaur" class="img-responsive">
+                        </div>
+                        <div class="row poke-details">
+                            <div class="col-xs-4 col-xs-offset-1 bldcls">Rank</div>
+                            <div class="col-xs-4 col-xs-offset-1" id="rank">001</div>
+                            <div class="col-xs-4 col-xs-offset-1 bldcls">Species</div>
+                            <div class="col-xs-4 col-xs-offset-1" id='speci'>Seed Pokemon</div>
+                            <div class="col-xs-4 col-xs-offset-1 bldcls">Height</div>
+                            <div class="col-xs-4 col-xs-offset-1" id="hght">2′4″ (0.71m)</div>
+                            <div class="col-xs-4 col-xs-offset-1 bldcls">Weight</div>
+                            <div class="col-xs-4 col-xs-offset-1" id='weight'></div>
+                            <div class="col-xs-4 col-xs-offset-1 bldcls">Abilities</div>
+                            <div class="col-xs-4 col-xs-offset-1" id="ability"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row" id="cards">
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-1" data-target="#pok"  >
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/bulbasaur.jpg" alt="Bulbasaur" class="img-responsive">
+                    <span class="name">Bulbasaur</span>
+                    <span class="rank">#01</span>
+                </div>
+            </div>
+            <!--poke1 End0  -->
+
+            <!-- Poke2 -->
+
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-2" data-target="#pok" data-toggle="modal" id="crd-1" data-target="#pok-2">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/ivysaur.jpg" alt="Ivysaur" class="img-responsive">
+                    <span class="name">Ivysaur</span>
+                    <span class="rank">#02</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3"  data-toggle="modal" id="crd-3" data-target="#pok">
+                <div class="card thumbnail">
+                    <img alt="venusaur" src="https://img.pokemondb.net/artwork/venusaur.jpg" class="img-responsive">
+                    <span class="name">Venusaur</span>
+                    <span class="rank">#03</span>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-4" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/charmander.jpg" alt="Charmander" class="img-responsive">
+                    <span class="name">Charmander</span>
+                    <span class="rank">#04</span>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-5" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/charmeleon.jpg" alt="Charmeleon" class="img-responsive">
+                    <span class="name">Charmeleon</span>
+                    <span class="rank">#05</span>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-6" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/charizard.jpg" alt="Charizard" class="img-responsive">
+                    <span class="name">Charizard</span>
+                    <span class="rank">#06</span>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-7" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/squirtle.jpg" alt="Squirtle" class="img-responsive">
+                    <span class="name">Squirtle</span>
+                    <span class="rank">#07</span>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-8" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/wartortle.jpg" alt="Wartortle" class="img-responsive">
+                    <span class="name">Wartortle</span>
+                    <span class="rank">#08</span>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-9" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/blastoise.jpg" alt="Blastoise" class="img-responsive">
+                    <span class="name">Blastoise</span>
+                    <span class="rank">#09</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-10" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/caterpie.jpg" alt="Caterpie" class="img-responsive">
+                    <span class="name">Caterpie</span>
+                    <span class="rank">#10</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-11" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/metapod.jpg" alt="Metapod" class="img-responsive">
+                    <span class="name">Metapod</span>
+                    <span class="rank">#11</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-12" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/butterfree.jpg" alt="Butterfree" class="img-responsive">
+                    <span class="name">Butterfree</span>
+                    <span class="rank">#12</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-13" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/weedle.jpg" alt="Weedle" class="img-responsive">
+                    <span class="name">Weedle</span>
+                    <span class="rank">#13</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-14" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/kakuna.jpg" alt="Kakuna" class="img-responsive">
+                    <span class="name">Kakuna</span>
+                    <span class="rank">#14</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-15" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/beedrill.jpg" alt="Beedrill" class="img-responsive">
+                    <span class="name">Beedrill</span>
+                    <span class="rank">#15</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-16" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/pidgey.jpg" alt="Pidgey" class="img-responsive">
+                    <span class="name">Pidgey</span>
+                    <span class="rank">#16</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-17" data-target="#pok">
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/pidgeotto.jpg" alt="Pidgeotto" class="img-responsive">
+                    <span class="name">Pidgeotto</span>
+                    <span class="rank">#17</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3" data-toggle="modal" id="crd-18" data-target="#pok" >
+                <div class="card thumbnail">
+                    <img src="https://img.pokemondb.net/artwork/pidgeot.jpg" alt="Pidgeot" class="img-responsive">
+                    <span class="name">Pidgeot</span>
+                    <span class="rank">#18</span>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="pokebox.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
